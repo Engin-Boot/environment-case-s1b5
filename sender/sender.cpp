@@ -1,12 +1,41 @@
-#include<iostream>
- using namespace std;
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <fstream>
+#include<sstream>
+#include<vector>
 
+using namespace std;
+
+struct Record
+{
+    string Temperature;
+    string Humidity;
+};
 int main()
 {
-  int arr[5]={1,2,3,4,5};
-  for(int i=0;i<5;i++)
-  {
-    cout<<arr[i]<<endl;
-  }
-  return 0;
+    const int ARRAY_SIZE = 100;
+
+    ifstream file;
+    file.open("\a.csv");
+
+    struct Record RowArray[ARRAY_SIZE];
+
+    while (!file.eof())
+    {
+        string Temperature = "";
+        string Humidity = "";
+
+        getline(file, Temperature, ',');
+
+        getline(file, Humidity, '\n');
+
+        RowArray[0].Temperature = Temperature;
+        RowArray[0].Humidity = Humidity;
+
+        cout << RowArray[0].Temperature << endl;
+        cout << RowArray[0].Humidity << endl;
+
+    }
+    return 0;
 }
