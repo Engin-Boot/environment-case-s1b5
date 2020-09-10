@@ -28,9 +28,6 @@ jobs:
       
     - name: run
       run: ./Sender | ./Receiver
-      
-    - name: run
-      run: ./testchecker
     
     - name: coverage report sender
       run: gcov -r sender/sender.cpp
