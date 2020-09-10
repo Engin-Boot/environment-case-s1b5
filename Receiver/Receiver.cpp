@@ -3,8 +3,8 @@
 #include<vector>
 using namespace std;
 
-void Temperature(vector<float> v);
-void Humidity(vector<float> v);
+//void Temperature(vector<float> v);
+//void Humidity(vector<float> v);
 
 int main()
 {
