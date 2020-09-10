@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    ifstream file;
+    /*ifstream file;
     file.open("TestData\environment.csv");
 
     while (!file.eof())
@@ -24,6 +24,7 @@ int main()
         cout << Temperature << endl;
         cout << Humidity << endl;
 
-    }
+    }*/
+    cout<<"1 2 3"<<endl;
     return 0;
 }
