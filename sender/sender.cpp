@@ -15,7 +15,7 @@ int main()
 
     while (!file.eof())
     {
-      while(getline(file,line)
+      while(getline(file,line))
             {
                 cout<<line<<endl;
             }
