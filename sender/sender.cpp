@@ -17,7 +17,7 @@ int main()
     const int ARRAY_SIZE = 100;
 
     ifstream file;
-    file.open("\a.csv");
+    file.open("TestData\environment.csv");
 
     struct Record RowArray[ARRAY_SIZE];
 
