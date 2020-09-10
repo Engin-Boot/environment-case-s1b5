@@ -28,14 +28,14 @@ int main()
         cout << *i << endl;
     }
 
-    Temperature(vector);
-    Humidity(vector);
+   // Temperature(vector);
+   // Humidity(vector);
 
     return 0;
 }
 
 
-void Temperature(vector<float> v)
+/*void Temperature(vector<float> v)
 {
     vector<float>::iterator i;
     for (i = v.begin(); i != v.end(); i=i+2)
@@ -55,5 +55,6 @@ void Humidity(vector<float> v)
             cout << "warning  Humidity" << " " << v.at(j) << endl;
         if (v.at(j)> 90)
             cout << "Error  Humidity" << " " << v.at(j) << endl;
-    }
+    }*/
+
 }
