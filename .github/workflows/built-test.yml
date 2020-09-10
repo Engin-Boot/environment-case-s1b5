@@ -26,11 +26,14 @@ jobs:
     - name: static analysis
       run: cppcheck --enable=all --error-exitcode=1 .
       
-    - name: pipe
+    - name: run
       run: ./Sender | ./Receiver
       
     - name: run
       run: ./testchecker
     
-    - name: coverage report
-      run: gcov -r *.cpp
+    - name: coverage report sender
+      run: gcov -r sender/sender.cpp
+      
+    - name: coverage report Receiver
+      run: gcov -r receiver/receiver.cpp
