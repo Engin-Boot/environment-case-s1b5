@@ -26,8 +26,8 @@ jobs:
     - name: static analysis
       run: cppcheck --enable=all --error-exitcode=1 .
       
-     -name: pipe
-     run: ./Sender | ./Receiver
+    - name: pipe
+      run: ./Sender | ./Receiver
       
     - name: run
       run: ./testchecker
