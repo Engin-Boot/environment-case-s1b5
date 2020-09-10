@@ -11,11 +11,12 @@ int main()
 {
     ifstream file;
     file.open("TestData\environment.csv");
-    string line;
-      while(getline(file,line))
-            {
-                cout<<line<<endl;
-            }
-    cout<<"1 2 3"<<endl;
+    while(!file.eof()){
+        string line="";
+        getline(file,line);
+        cout<<line<<endl;
+    }
+       
+    
     return 0;
 }
