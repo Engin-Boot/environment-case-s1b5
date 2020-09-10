@@ -9,22 +9,18 @@ using namespace std;
 
 int main()
 {
-    /*ifstream file;
+    ifstream file;
     file.open("TestData\environment.csv");
+    string line;
 
     while (!file.eof())
     {
-        string Temperature = "";
-        string Humidity = "";
+      while(getline(file,line)
+            {
+                cout<<line<<endl;
+            }
 
-        getline(file, Temperature, ',');
-
-        getline(file, Humidity, '\n');
-
-        cout << Temperature << endl;
-        cout << Humidity << endl;
-
-    }*/
+    }
     cout<<"1 2 3"<<endl;
     return 0;
 }
