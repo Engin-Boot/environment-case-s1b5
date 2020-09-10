@@ -18,16 +18,16 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y cppcheck
       
     - name: build
-      run: g++ -Wall -Wextra -Werror --coverage  Sender/*.cpp
+      run: g++ -Wall -Wextra -Werror --coverage  -o sender Sender/*.cpp
     
     - name: build
-      run: g++ -Wall -Wextra -Werror --coverage  Receiver/*.cpp
+      run: g++ -Wall -Wextra -Werror --coverage  -o receiver Receiver/*.cpp
       
     - name: static analysis
       run: cppcheck --enable=all --error-exitcode=1 .
       
     - name: pipe
-      run: ./Sender | ./Receiver
+      run: ./sender | ./receiver
       
     - name: run
       run: ./testchecker
