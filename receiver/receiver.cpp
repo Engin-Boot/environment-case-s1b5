@@ -1,27 +1,37 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<sstream>
+
 using namespace std;
 
-vector<float> ReadValues();
-void Humidity(vector<float> v);
-void Humidity_Limit(float value);
-void Temperature_Check(float f);
-void Temperature_HIGH(float f);
-void Temperature_LOW(float f2);
-
-int main()
+void Temperature_HIGH(float value)
 {
-    std::vector<float> vector1=ReadValues();
-    int size=vector1.size();
-    for (int i = 0; i <size; i=i+2)
-    {
-        Temperature_Check(vector1.at(i));
-
-    }
-    Humidity(vector1);
-    return 0;
+    if(value>40)
+        cout<<"Temperature-Error-too high-"<<value<<endl;
+    else if(value>37)
+        cout<<"Temperature-Warning-high-"<<value<<endl;
 }
+
+ 
+
+void Temperature_LOW(float value)
+{
+    if(value<0)
+        cout<<"Temperature -Error-too low"<<value<<endl;
+    else if(value<4)
+        cout<<"Temperature -Warning-low-"<<value<<endl;
+}
+
+
+void Humidity_Limit(float a)
+{
+if (a> 70 && a < 90)
+            cout << "warning  Humidity" << a << endl;
+        if (a> 90)
+            cout << "Error  Humidity" << a << endl;
+}
+
 void Temperature_Check(float value)
 {
     if(value>37)
@@ -31,50 +41,25 @@ void Temperature_Check(float value)
 
 }
 
-vector<float> ReadValues()
+void ReadValues()
 {
-    vector<float> vector;
     string line="";
     while (getline(cin, line))
     {
-        float val = ::atof(line.c_str());
-        vector.push_back(val);
-
-    }
-    return vector;
-
-}
-void Temperature_HIGH(float value)
-{
-    if(value>40)
-        cout<<"Temperature-Error-too high-"<< " " << value <<endl;
-    else if(value>37)
-        cout<<"Temperature-Warning-high-"<< " " << value <<endl;
-}
-
- 
-
-void Temperature_LOW(float value)
-{
-    if(value<0)
-        cout<<"Temperature -Error-too low"<< " " << value << endl;
-    else if(value<4)
-        cout<<"Temperature -Warning-low-"<< " " <<value << endl;
-}
-
-void Humidity(vector<float> v)
-{
-    int size = v.size();
-    for (int j = 1; j < size;j=j+2) {
-        if(v.at(j)>70)
-        Humidity_Limit(v.at(j));
+        stringstream str(line);
+        while(str.good())
+        {
+            string Temp,Humi;
+            getline(str,Temp,',');
+            Temperature_Check(stof(Temp));
+            getline(str,Humi,'\n');
+            Humidity_Limit(stof(Humi));
+        }
     }
 }
- 
-void Humidity_Limit(float value)
+
+int main()
 {
-        if (value > 90)
-            cout << "Error  Humidity" << " " << value << endl;
-        if (value > 70 )
-            cout << "Warning  Humidity" << " " << value << endl;
+    ReadValues();
+    return 0;
 }
