@@ -7,16 +7,32 @@
 
 using namespace std;
 
-int main()
+void Function()
 {
     ifstream file;
     file.open("TestData/environment.csv");
-    while(!file.eof()){
+    vector<string> Env_Values;
+    while(!file.eof())
+    {
         string line="";
-        getline(file,line);
-        cout<<line<<endl;
+        string st="";
+        getline(file,line,',');
+        Env_Values.push_back(line);
+        getline(file,st,'\n');
+        Env_Values.push_back(st);
+        
     }
-       
-    
+    int s=Env_Values.size();
+    for(int i=0;i<s;i++)
+    {
+        cout<<Env_Values[i]<<endl;
+    }
+}
+
+int main()
+{
+
+    Function();
     return 0;
 }
+
