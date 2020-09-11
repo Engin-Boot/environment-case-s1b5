@@ -24,12 +24,12 @@ void Temperature_LOW(float value)
 }
 
 
-void Humidity_Limit(float a)
+void Humidity_Limit(float value)
 {
-if (a> 70 && a < 90)
-            cout << "warning  Humidity" << a << endl;
-        if (a> 90)
-            cout << "Error  Humidity" << a << endl;
+        if (value > 90)
+            cout << "Error  Humidity" << " " << value << endl;
+        if (value > 70 )
+            cout << "Warning  Humidity" << " " << value << endl;
 }
 
 void Temperature_Check(float value)
