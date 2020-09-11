@@ -47,9 +47,9 @@ vector<float> ReadValues()
 void Temperature_HIGH(float value)
 {
     if(value>40)
-        cout<<"Temperature-Error-too high-"<<value<<endl;
+        cout<<"Temperature-Error-too high-"<< " " << value <<endl;
     else if(value>37)
-        cout<<"Temperature-Warning-high-"<<value<<endl;
+        cout<<"Temperature-Warning-high-"<< " " << value <<endl;
 }
 
  
@@ -57,23 +57,24 @@ void Temperature_HIGH(float value)
 void Temperature_LOW(float value)
 {
     if(value<0)
-        cout<<"Temperature -Error-too low"<<value<<endl;
+        cout<<"Temperature -Error-too low"<< " " << value << endl;
     else if(value<4)
-        cout<<"Temperature -Warning-low-"<<value<<endl;
+        cout<<"Temperature -Warning-low-"<< " " <<value << endl;
 }
 
 void Humidity(vector<float> v)
 {
     int size = v.size();
     for (int j = 1; j < size;j=j+2) {
+        if(v.at(j)>70)
         Humidity_Limit(v.at(j));
     }
 }
  
 void Humidity_Limit(float value)
 {
-if (value> 70 && value < 90)
-            cout << "warning  Humidity" << value << endl;
         if (value > 90)
-            cout << "Error  Humidity" << value << endl;
+            cout << "Error  Humidity" << " " << value << endl;
+        if (value > 70 )
+            cout << "Warning  Humidity" << " " << value << endl;
 }
