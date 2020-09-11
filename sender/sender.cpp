@@ -7,32 +7,43 @@
 
 using namespace std;
 
-void Function()
+vector<vector<string>> Function(string filename)
 {
     ifstream file;
-    file.open("TestData/environment.csv");
-    vector<string> Env_Values;
-    while(!file.eof())
+    file.open(filename);
+    vector<vector<string>> Result_Vector;
+    string line="";
+    string value="";
+    while(getline(file,line))
     {
-        string line="";
-        string st="";
-        getline(file,line,',');
-        Env_Values.push_back(line);
-        getline(file,st,'\n');
-        Env_Values.push_back(st);
-        
+        stringstream str(line);
+        vector<string> line_vector;
+        while (getline(str,value,','))
+        {
+            line_vector.push_back(value);
+        }
+        Result_Vector.push_back(line_vector);    
     }
-    int s=Env_Values.size();
-    for(int i=0;i<s;i++)
+    file.close();
+    return Result_Vector;
+}
+
+void print(vector<vector<string>> Result_Vector)
+{
+    for(vector<string> vector:Result_Vector)
     {
-        cout<<Env_Values[i]<<endl;
+        for(string value:vector)
+        {
+            cout<<value<<",";
+        }
+        cout<<endl;
     }
 }
 
 int main()
 {
-
-    Function();
+    vector<vector<string>> vector1=Function("TestData/environment.csv");
+    print(vector1);
     return 0;
 }
 
