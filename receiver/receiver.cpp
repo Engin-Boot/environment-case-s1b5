@@ -3,9 +3,10 @@
 #include<vector>
 using namespace std;
 
-void Temperature_Check(float f);
-void Humidity(vector<float> v);
 vector<float> ReadValues();
+void Humidity(vector<float> v);
+void Humidity_Limit(float value);
+void Temperature_Check(float f);
 void Temperature_HIGH(float f);
 void Temperature_LOW(float f2);
 
@@ -65,9 +66,14 @@ void Humidity(vector<float> v)
 {
     int size = v.size();
     for (int j = 1; j < size;j=j+2) {
-        if (v.at(j)> 70 && v.at(j) < 90)
-            cout << "warning  Humidity" << v.at(j) << endl;
-        if (v.at(j)> 90)
-            cout << "Error  Humidity" << v.at(j) << endl;
+        Humidity_Limit(v.at(j));
     }
+}
+ 
+void Humidity_Limit(float value)
+{
+if (value> 70 && value < 90)
+            cout << "warning  Humidity" << value << endl;
+        if (value > 90)
+            cout << "Error  Humidity" << value << endl;
 }
