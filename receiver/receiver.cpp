@@ -28,7 +28,7 @@ void Humidity_Limit(float value)
 {
         if (value > 90)
             cout << "Error  Humidity" << " " << value << endl;
-        if (value > 70 )
+        else if(value > 70 )
             cout << "Warning  Humidity" << " " << value << endl;
 }
 
