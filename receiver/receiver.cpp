@@ -23,7 +23,7 @@ public:
 
     environmentCheck(){}
 
-    environmentCheck(float value)
+    explicit environmentCheck(float value)
     {
         if (value > 37)
             checkTemperatureHigh(value);
