@@ -21,7 +21,7 @@ private:
     AlertMessage* alerter{};
 public:
 
-    environmentCheck(){}
+    explicit environmentCheck(){}
 
     explicit environmentCheck(float value)
     {
