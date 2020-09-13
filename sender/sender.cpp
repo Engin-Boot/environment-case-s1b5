@@ -46,4 +46,3 @@ int main()
     print(vector1);
     return 0;
 }
-
