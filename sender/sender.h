@@ -9,5 +9,5 @@ using namespace std;
 namespace Sender
 {
 vector<vector<string>> Function(string );
-void print(<vector<vector<string>>);
+void print(vector<vector<string>>);
 }
