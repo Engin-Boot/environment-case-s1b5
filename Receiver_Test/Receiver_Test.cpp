@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "../receiver/receiver.h"
-#include "catch/catch.hpp"
+#include "../catch.hpp"
 
 
 TEST_CASE("Show ERROR when temperature is above the limit") {
