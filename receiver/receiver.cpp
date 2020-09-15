@@ -8,11 +8,12 @@ class AlertMessage
 {
 public:
     
-    void raiseAlert(float value, const char* level, const char* message)
+    bool raiseAlert(float value, const char* level, const char* message)
     {
         std::cout << message << " " << value << " " << level << std::endl;
+        return true;
     }
-   
+   return false;
 };
 
 class environmentCheck
@@ -35,11 +36,9 @@ public:
     {
         if (value > 40) {
             alerter->raiseAlert(value, "Too high","ERROR");
-            return true;
         }
         else if (value > 37) {
             alerter->raiseAlert(value, "High","WARNING");
-            return true;
         }
         return false;
     }
@@ -48,11 +47,9 @@ public:
     {
         if (value < 0) {
             alerter->raiseAlert(value, "Too low","ERROR");
-            return true;
         }
         else if (value < 4) {
             alerter->raiseAlert(value, "Low","WARNING");
-            return true;
         }
         return false;
     }
@@ -62,12 +59,8 @@ public:
         if (value > 70)
         {
             if (value > 90)
-            {
-                alerter->raiseAlert(value, "Too high","ERROR");
-                return true;
-            }
+            alerter->raiseAlert(value, "Too high","ERROR");
             alerter->raiseAlert(value, "High","WARNING");
-            return true;
         }
         return false;
     }
