@@ -2,6 +2,8 @@
 #include<string>
 #include<sstream>
 #include<vector>
+#include "catch.hpp"
+#include "stats.h"
 using namespace std;
 
 class AlertMessage
