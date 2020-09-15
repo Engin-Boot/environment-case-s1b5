@@ -8,17 +8,17 @@
 
 using namespace std;
 
-vector<vector<string>> Sender::ParseCSVfile(string filename)
+vector<vector<float>> Sender::ParseCSVfile(string filename)
 {
     ifstream file;
     file.open(filename);
-    vector<vector<string>> Result_Vector;
+    vector<vector<float>> Result_Vector;
     string line="";
     string value="";
     while(getline(file,line))
     {
         stringstream str(line);
-        vector<string> line_vector;
+        vector<float> line_vector;
         while (getline(str,value,','))
         {
             line_vector.push_back(value);
@@ -29,11 +29,11 @@ vector<vector<string>> Sender::ParseCSVfile(string filename)
     return Result_Vector;
 }
 
-void Sender::print(vector<vector<string>> Result_Vector)
+void Sender::print(vector<vector<float>> Result_Vector)
 {
-    for(vector<string> vector:Result_Vector)
+    for(vector<float> vector:Result_Vector)
     {
-        for(string value:vector)
+        for(float value:vector)
         {
             cout<<value<<",";
         }
@@ -43,7 +43,7 @@ void Sender::print(vector<vector<string>> Result_Vector)
 
 int main()
 {
-    vector<vector<string>> vector1=Sender::ParseCSVfile("TestData/environment.csv");
+    vector<vector<float>> vector1=Sender::ParseCSVfile("TestData/environment.csv");
     Sender::print(vector1);
     return 0;
 }
