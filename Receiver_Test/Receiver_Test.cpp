@@ -5,7 +5,9 @@
 #include "../catch.hpp"
 
 
-TEST_CASE("Show ERROR when temperature is above the limit") {
+TEST_CASE("Lower value for checkTemperatureHigh") {
+    SECTION("Throws error") {
         environmentCheck e;
-        REQUIRE(e.checkHumidity(100)=("ERROR100 Toohigh"));
+        REQUIRE_THROWS_AS(e.checkTemperatureHigh(36), std::logic_error);
+    }
 }
