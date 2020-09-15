@@ -6,6 +6,6 @@
 
 
 TEST_CASE("Show ERROR when temperature is above the limit") {
-        std::environmentCheck e;
+        environmentCheck e;
         REQUIRE(e.checkHumidity(100)=("ERROR100 Toohigh"));
 }
