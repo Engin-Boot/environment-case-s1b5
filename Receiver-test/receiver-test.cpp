@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN 
 
 #include<iostream>
-#include "../receiver/receiver.h"
+#include "receiver.h"
 #include "catch.hpp"
 
 TEST_CASE("Negative value for checkHumidity") {
