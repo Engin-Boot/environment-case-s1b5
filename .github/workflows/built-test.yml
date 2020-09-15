@@ -23,7 +23,7 @@ jobs:
     - name: build
       run: g++ -Wall -Wextra -Werror --coverage  -o Receiver receiver/receiver.cpp
       
-    - name: build Receiver Test
+    - name: build Sender Test
       run: g++ -Wall -Wextra -Werror -o SenderTest Sender_Test/*.cpp
             
     - name: static analysis
@@ -32,7 +32,7 @@ jobs:
     - name: run
       run: ./Sender | ./Receiver
     
-    - name: run Receiver Test
+    - name: run Sender Test
       run: ./SenderTest
     
     - name: coverage report sender
