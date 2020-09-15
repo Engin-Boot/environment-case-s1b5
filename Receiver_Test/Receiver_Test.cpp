@@ -8,6 +8,6 @@
 TEST_CASE("Lower value for checkTemperatureHigh") {
     SECTION("Throws error") {
         environmentCheck e;
-        REQUIRE_THROWS_AS(e.checkTemperatureHigh(36), std::logic_error);
+        REQUIRE_THROWS_AS(environmentCheck::e.checkTemperatureHigh(36), std::logic_error);
     }
 }
