@@ -10,9 +10,9 @@ using namespace std;
 TEST_CASE("test case for reading csv file that exist")
 {
   vector<vector<float>> vector1;
-  vector<string> v1={12,43};
-  vector<string> v2={45,23};
-  vector<string> v3={2,90};
+  vector<float> v1={12,43};
+  vector<float> v2={45,23};
+  vector<float> v3={2,90};
   vector1.push_back(v1);
   vector1.push_back(v2);
   vector1.push_back(v3);
