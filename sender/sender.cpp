@@ -8,7 +8,7 @@
 
 using namespace std;
 
-vector<vector<string>> Sender::Function(string filename)
+vector<vector<string>> Sender::ParseCSVfile(string filename)
 {
     ifstream file;
     file.open(filename);
@@ -43,7 +43,7 @@ void Sender::print(vector<vector<string>> Result_Vector)
 
 int main()
 {
-    vector<vector<string>> vector1=Sender::Function("TestData/environment.csv");
+    vector<vector<string>> vector1=Sender::ParseCSVfile("TestData/environment.csv");
     Sender::print(vector1);
     return 0;
 }
