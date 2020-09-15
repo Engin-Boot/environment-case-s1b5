@@ -34,7 +34,7 @@ TEST_CASE("If the csv file doesnt exist it will return vector<vector<float>> wit
   REQUIRE(vector2!=vector1);
 }
 
-TEST_CASE("If the csv file doesnt exist it will return vector<vector<float>> with no values")
+TEST_CASE("If the csv file doesnt exist it will return vector<vector<float>> with no values compared with a vector of same type with size 0")
 {
   vector<vector<float>> vector1;
   vector<vector<float>> vector2=Sender::ParseCSVfile("TestData/testdata2.csv");  //the file does not exist
