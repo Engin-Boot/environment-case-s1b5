@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
-#include "..sender/sender.h"
+#include "../sender/sender.h"
 #include<fstream>
 #include<vector>
 #include<sstream>
