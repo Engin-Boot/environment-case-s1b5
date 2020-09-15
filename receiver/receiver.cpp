@@ -13,7 +13,6 @@ public:
         std::cout << message << " " << value << " " << level << std::endl;
         return true;
     }
-   return false;
 };
 
 class environmentCheck
