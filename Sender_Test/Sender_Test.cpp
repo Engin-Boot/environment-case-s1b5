@@ -16,6 +16,6 @@ TEST_CASE("test case for reading csv file that exist")
   vector1.push_back(v1);
   vector1.push_back(v2);
   vector1.push_back(v3);
-  
-  REQUIRE(Sender::ParseCSVfile("TestData/testdata1.csv")==vector1);
+  vector<vector<string> vector2=Sender::ParseCSVfile("TestData/testdata1.csv");
+  REQUIRE(vector2==vector1);
 }
