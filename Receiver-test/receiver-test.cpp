@@ -10,3 +10,4 @@ TEST_CASE("Negative value for checkHumidity") {
         REQUIRE_THROWS_AS(e.checkHumidity(-5), std::logic_error);
     }
 }
+
