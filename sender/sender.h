@@ -8,6 +8,6 @@
 using namespace std;
 namespace Sender
 {
-vector<vector<string>> ParseCSVfile(string );
+vector<vector<float>> ParseCSVfile(string );
 void print(vector<vector<string>>);
 }
