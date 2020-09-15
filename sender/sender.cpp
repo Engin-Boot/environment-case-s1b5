@@ -14,7 +14,7 @@ vector<vector<float>> Sender::ParseCSVfile(string filename)
     file.open(filename);
     vector<vector<float>> Result_Vector;
     string line="";
-    string value="";
+    float value="";
     while(getline(file,line))
     {
         stringstream str(line);
