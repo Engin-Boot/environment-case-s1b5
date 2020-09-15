@@ -4,10 +4,11 @@
 #include <fstream>
 #include<sstream>
 #include<vector>
+#include<sender.h>
 
 using namespace std;
 
-vector<vector<string>> Function(string filename)
+vector<vector<string>> sender::Function(string filename)
 {
     ifstream file;
     file.open(filename);
@@ -28,7 +29,7 @@ vector<vector<string>> Function(string filename)
     return Result_Vector;
 }
 
-void print(vector<vector<string>> Result_Vector)
+void sender::print(vector<vector<string>> Result_Vector)
 {
     for(vector<string> vector:Result_Vector)
     {
