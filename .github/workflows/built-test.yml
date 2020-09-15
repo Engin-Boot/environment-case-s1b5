@@ -24,7 +24,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage  -o Receiver receiver/receiver.cpp
             
     - name: static analysis
-      run: cppcheck receiver/receiver.h receiver/receiver.cpp  sender/sender.h sender/sender.cpp --enable=all --error-exitcode=1 .
+      run: cppcheck receiver/receiver.h receiver/receiver.cpp  sender/sender.h sender/sender.cpp --enable=all --check-config --error-exitcode=1 .
       
     - name: run
       run: ./Sender | ./Receiver
