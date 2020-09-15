@@ -1,9 +1,8 @@
 #define CATCH_CONFIG_MAIN 
-
+#include<iostream>
 #include<bits/stdc++.h>
-
-#include "../catch.hpp"
 #include "../receiver/receiver.h"
+#include "../catch.hpp"
 
 TEST_CASE("Show ERROR when temperature is above the limit") {
         std::environmentCheck e;
