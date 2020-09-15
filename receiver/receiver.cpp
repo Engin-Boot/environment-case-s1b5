@@ -10,7 +10,7 @@ public:
     
     void raiseAlert(float value, const char* level, const char* message)
     {
-        std::cout << message << value << " " << level << std::endl;
+        std::cout << message << " " << value << " " << level << std::endl;
     }
    
 };
@@ -29,37 +29,47 @@ public:
             checkTemperatureHigh(value);
         if (value < 4)
             checkTemperatureLow(value);
-
     }
 
-    void checkTemperatureHigh(float value)
+    bool checkTemperatureHigh(float value)
     {
         if (value > 40) {
             alerter->raiseAlert(value, "Too high","ERROR");
+            return true;
         }
         else if (value > 37) {
             alerter->raiseAlert(value, "High","WARNING");
+            return true;
         }
+        return false;
     }
 
-    void checkTemperatureLow(float value)
+    bool checkTemperatureLow(float value)
     {
         if (value < 0) {
             alerter->raiseAlert(value, "Too low","ERROR");
+            return true;
         }
         else if (value < 4) {
             alerter->raiseAlert(value, "Low","WARNING");
+            return true;
         }
+        return false;
     }
 
-    void checkHumidity(float value)
+    bool checkHumidity(float value)
     {
         if (value > 70)
         {
             if (value > 90)
-            alerter->raiseAlert(value, "Too high","ERROR");
+            {
+                alerter->raiseAlert(value, "Too high","ERROR");
+                return true;
+            }
             alerter->raiseAlert(value, "High","WARNING");
+            return true;
         }
+        return false;
     }
 };
 
