@@ -2,7 +2,6 @@
 #include<vector>
 #include<string>
 #include<sstream>
-#include "receiver.h"
 using namespace std;
 
 class AlertMessage
