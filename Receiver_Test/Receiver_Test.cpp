@@ -7,5 +7,5 @@
 
 TEST_CASE("Show ERROR when humidity is above the limit") {
         environmentCheck e;
-        REQUIRE(e.checkHumidity(100)== true);
+        REQUIRE(e.checkHumidity(100) = true);
     }
