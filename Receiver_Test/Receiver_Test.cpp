@@ -4,7 +4,12 @@
 #include "../receiver/receiver.h"
 #include "../catch.hpp"
 
-TEST_CASE("Show ERROR when humidity is above the limit") {
+TEST_CASE("Show ERROR when humidity is above the limit.") {
         environmentCheck e;
         REQUIRE(e.checkHumidity(100) == true);
+    }
+
+TEST_CASE("If the value is below the limit, it should not raise alert.") {
+        environmentCheck e;
+        REQUIRE(e.checkHumidity(60) == false);
     }
