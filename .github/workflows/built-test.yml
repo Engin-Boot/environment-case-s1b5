@@ -24,7 +24,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage  -o Receiver receiver/receiver.cpp
       
     - name: build Receiver Test
-      run: g++ -Wall -Wextra -Werror --coverage  -o Receiver receiver/receiver-test.cpp
+      run: g++ -Wall -Wextra -Werror --coverage  -o Receiver Receiver-test/receiver-test.cpp
       
       
     - name: static analysis
