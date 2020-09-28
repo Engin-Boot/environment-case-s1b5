@@ -21,7 +21,7 @@ TEST_CASE("If humidity is below the warning-limit, it should not raise alert.") 
 
 TEST_CASE("Show ERROR when temperature is below the error-limit.") {
         environmentCheck e;
-        REQUIRE(e.checkTemperatueLow(-5) == "Temperature Error Low");
+        REQUIRE(e.checkTemperatureLow(-5) == "Temperature Error Low");
     }
 
 TEST_CASE("Show WARNING when temperature is below the warning-limit.") {
