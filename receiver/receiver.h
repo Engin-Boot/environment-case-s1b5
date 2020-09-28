@@ -13,7 +13,7 @@ public:
  
 string checkTemperature(float value);
 string checkTemperatureHigh(float value);  
-void checkTemperatureLow(float value);
-void checkHumidity(float value);
+string checkTemperatureLow(float value);
+string checkHumidity(float value);
 };
 
