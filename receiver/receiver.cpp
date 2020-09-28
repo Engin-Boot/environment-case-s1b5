@@ -4,65 +4,62 @@
 #include<sstream>
 using namespace std;
 
-class AlertMessage
-{
-public:
-    
-    bool raiseAlert(float value, const char* level, const char* message, const char* parameter)
-    {
-        std::cout << parameter << message << value << " " << level << std::endl;
-        return true;
-    }
-   
-};
-
 class environmentCheck
 {
-private:
-    AlertMessage* alerter{};
 public:
-
-
-    void checkTemperature(float value)
+    string checkTemperature(float value)
     {
         if (value > 37)
-            checkTemperatureHigh(value);
+            string temp=checkTemperatureHigh(value);
+            return temp;
         if (value < 4)
-            checkTemperatureLow(value);
-
+            string temp=checkTemperatureLow(value);
+            return temp;
+        return "Normal Conditions";
     }
 
-    void checkTemperatureHigh(float value)
+    string checkTemperatureHigh(float value)
     {
         if (value > 40) {
-            bool val_tempH = alerter->raiseAlert(value, "Too high","ERROR", "Temperature");
+            return "Temperature Error High";
         }
         else if (value > 37) {
-            bool val_tempH = alerter->raiseAlert(value, "High","WARNING", "Temperature");
+            return  "Temperature Warning High";
         }
+        return "Normal Conditions";
     }
 
     void checkTemperatureLow(float value)
     {
         if (value < 0) {
-            bool val_tempL = alerter->raiseAlert(value, "Too low","ERROR", "Temperature");
+            return "Temperature Error Low";
         }
         else if (value < 4) {
-            bool val_tempL = alerter->raiseAlert(value, "Low","WARNING", "Temperature");
+            return "Temperature Warning Low";
         }
+        return "Normal Conditions"; 
     }
 
     void checkHumidity(float value)
     {
         if (value > 90) {
-            bool val_tempHD = alerter->raiseAlert(value, "Too high", "ERROR", "Humidity");
+            return "Humidity Error High";
         }
         else if (value > 70) {
-            bool val_tempHD = alerter->raiseAlert(value, "High", "WARNING", "Humidity");
+            return "Humidity Warning High";
         }
+        return "Normal Conditions";
     }
 };
 
+void Print(string str)
+{
+    if(str!="Normal Conditions")
+    {
+        cout<<str<<endl;
+    }
+
+}
 void ReadValues()
 {
     string line = "";
@@ -74,9 +71,11 @@ void ReadValues()
             environmentCheck humid,temp;
             string Temp, Humid;
             getline(str, Temp, ',');
-            temp.checkTemperature(stof(Temp));
+            string temp_HL=temp.checkTemperature(stof(Temp));
+            Print(temp_HL);
             getline(str, Humid, '\n');
-            humid.checkHumidity(stof(Humid));
+            string humid_H=humid.checkHumidity(stof(Humid));
+            Print(humid_H);
         }
     }
 }
