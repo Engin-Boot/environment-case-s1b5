@@ -4,16 +4,15 @@
 #include<vector>
 using namespace std;
 
-class AlertMessage
-{
-public:   
-void raiseAlert(float value, const char* level, const char* message);
-};
+void Print(string str);
+void ReadValues();
 
 class environmentCheck
 {
 public:
-void checkTemperatureHigh(float value);
+ 
+string checkTemperature(float value);
+string checkTemperatureHigh(float value);  
 void checkTemperatureLow(float value);
 void checkHumidity(float value);
 };
