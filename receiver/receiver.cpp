@@ -33,7 +33,7 @@ public:
         return "Normal Conditions";
     }
 
-    void checkTemperatureLow(float value)
+    string checkTemperatureLow(float value)
     {
         if (value < 0) {
             return "Temperature Error Low";
@@ -44,7 +44,7 @@ public:
         return "Normal Conditions"; 
     }
 
-    void checkHumidity(float value)
+    string checkHumidity(float value)
     {
         if (value > 90) {
             return "Humidity Error High";
