@@ -10,11 +10,15 @@ public:
     string checkTemperature(float value)
     {
         if (value > 37)
+        {
             string temp=checkTemperatureHigh(value);
             return temp;
+        }
         if (value < 4)
+        {
             string temp=checkTemperatureLow(value);
             return temp;
+        }
         return "Normal Conditions";
     }
 
