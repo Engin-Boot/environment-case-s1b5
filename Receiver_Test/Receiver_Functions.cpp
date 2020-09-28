@@ -2,70 +2,68 @@
 #include<vector>
 #include<string>
 #include<sstream>
-#include "../receiver/receiver.h"
 using namespace std;
-
-class AlertMessage
-{
-public:
-    
-    bool raiseAlert(float value, const char* level, const char* message)
-    {
-        std::cout << message << " " << value << " " << level << std::endl;
-        return true;
-    }
-};
 
 class environmentCheck
 {
-private:
-    AlertMessage* alerter{};
 public:
-
-    explicit environmentCheck(){}
-
-    explicit environmentCheck(float value)
+    string checkTemperature(float value)
     {
         if (value > 37)
-            checkTemperatureHigh(value);
+        {
+            string temp=checkTemperatureHigh(value);
+            return temp;
+        }
         if (value < 4)
-            checkTemperatureLow(value);
+        {
+            string temp=checkTemperatureLow(value);
+            return temp;
+        }
+        return "Normal Conditions";
     }
 
-    bool checkTemperatureHigh(float value)
+    string checkTemperatureHigh(float value)
     {
         if (value > 40) {
-            alerter->raiseAlert(value, "Too high","ERROR");
+            return "Temperature Error High";
         }
         else if (value > 37) {
-            alerter->raiseAlert(value, "High","WARNING");
+            return  "Temperature Warning High";
         }
-        return false;
+        return "Normal Conditions";
     }
 
-    bool checkTemperatureLow(float value)
+    string checkTemperatureLow(float value)
     {
         if (value < 0) {
-            alerter->raiseAlert(value, "Too low","ERROR");
+            return "Temperature Error Low";
         }
         else if (value < 4) {
-            alerter->raiseAlert(value, "Low","WARNING");
+            return "Temperature Warning Low";
         }
-        return false;
+        return "Normal Conditions"; 
     }
 
-    bool checkHumidity(float value)
+    string checkHumidity(float value)
     {
-        if (value > 70)
-        {
-            if (value > 90)
-            alerter->raiseAlert(value, "Too high","ERROR");
-            alerter->raiseAlert(value, "High","WARNING");
+        if (value > 90) {
+            return "Humidity Error High";
         }
-        return false;
+        else if (value > 70) {
+            return "Humidity Warning High";
+        }
+        return "Normal Conditions";
     }
 };
 
+void Print(string str)
+{
+    if(str!="Normal Conditions")
+    {
+        cout<<str<<endl;
+    }
+
+}
 void ReadValues()
 {
     string line = "";
@@ -74,12 +72,14 @@ void ReadValues()
         stringstream str(line);
         while (str.good())
         {
-            environmentCheck humid;
+            environmentCheck humid,temp;
             string Temp, Humid;
             getline(str, Temp, ',');
-            environmentCheck temp(stof(Temp));
+            string temp_HL=temp.checkTemperature(stof(Temp));
+            Print(temp_HL);
             getline(str, Humid, '\n');
-            humid.checkHumidity(stof(Humid));
+            string humid_H=humid.checkHumidity(stof(Humid));
+            Print(humid_H);
         }
     }
 }
